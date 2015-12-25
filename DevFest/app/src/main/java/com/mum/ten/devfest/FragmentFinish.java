@@ -39,10 +39,11 @@ public class FragmentFinish extends Fragment {
                 SharedPreferences mSharedPreferences = getActivity().getSharedPreferences("Devfest", 0);
                 SharedPreferences.Editor e = mSharedPreferences.edit();
                 e.putBoolean("ifEntryWelcome", true);
-//                e.commit();
+                e.commit();
 
                 Intent intent = new Intent(getActivity(),MainActivity.class);
                 startActivity(intent);
+                getActivity().finish();
             }
         });
         return view;

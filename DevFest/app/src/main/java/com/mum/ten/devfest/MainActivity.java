@@ -9,8 +9,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
-import com.google.android.gms.common.api.GoogleApiClient;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,8 +16,6 @@ public class MainActivity extends AppCompatActivity {
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
-    private GoogleApiClient client;
-    final int requestCodeWelcome = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
         if(ifEntry == false){
             Intent intent = new Intent();
             intent.setClass(this, WelcomeActivity.class);
-            startActivityForResult(intent, requestCodeWelcome);
+            startActivity(intent);
+            this.finish();
         }
 
         setContentView(R.layout.activity_main);
@@ -42,15 +39,6 @@ public class MainActivity extends AppCompatActivity {
         listActs.setAdapter(adapter);
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == requestCodeWelcome){
-            if(RESULT_OK == resultCode){
-
-            }
-        }
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -79,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-
     }
 
     @Override

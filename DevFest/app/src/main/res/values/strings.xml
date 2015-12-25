@@ -25,5 +25,10 @@
     <string name="gender_female">Female</string>
     <string name="gender_male">Male</string>
 
+    <string name="fragment_exit_dialog_title">Exit</string>
+    <string name="fragment_exit_dialog_button_yes">Yes</string>
+    <string name="fragment_exit_dialog_button_cancel">Cancel</string>
+    <string name="fragment_exit_dialog_message">You have not finished Quiz. Do you want to exit?</string>
+
 
 </resources>

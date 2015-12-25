@@ -10,4 +10,5 @@
 
     <dimen name="fragment_spin_width">180dp</dimen>
     <dimen name="fragment_spin_height">32dp</dimen>
+    <dimen name="fragment_inner_margin_top">110dp</dimen>
 </resources>

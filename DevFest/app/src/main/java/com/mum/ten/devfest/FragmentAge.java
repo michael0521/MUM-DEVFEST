@@ -60,7 +60,12 @@ public class FragmentAge extends Fragment {
         super.onPause();
         SharedPreferences mSharedPreferences = getActivity().getSharedPreferences("Devfest", 0);
         int age = mSharedPreferences.getInt("age", 25);
-        int editAge = Integer.valueOf(edit_age.getText().toString());
+        int editAge;
+        try {
+            editAge = Integer.valueOf(edit_age.getText().toString());
+        }catch(NumberFormatException e){
+            editAge = 25;
+        }
         if(editAge > 0 && editAge != age){
             SharedPreferences.Editor e = mSharedPreferences.edit();
             e.putInt("age",editAge);
