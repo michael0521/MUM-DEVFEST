@@ -2,19 +2,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context="com.mum.ten.devfest.FragmentStart">
 
     <RelativeLayout
         android:layout_width="@dimen/fragment_spin_width"
         android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
+        android:layout_gravity="top|right"
         android:layout_marginTop="@dimen/fragment_inner_margin_top"
+        android:layout_marginRight="@dimen/fragment_inner_margin_Right"
         >
         <TextView
             android:id="@+id/label_gender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:textSize="@dimen/fragment_inner_text_size_title"
             android:text="@string/fragment_gender_title"
             />
         <Spinner
@@ -31,9 +34,9 @@
         android:id="@+id/btn_next"
         android:layout_width="@dimen/btn_width"
         android:layout_height="@dimen/btn_height"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginBottom="@dimen/button_margin_bottom"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:background="@color/colorPrimaryDark"
+        android:background="@drawable/button_background"
         android:layout_gravity="bottom|right"
         android:textColor="@color/colorButtonText"
         android:text="@string/btn_text_next"/>

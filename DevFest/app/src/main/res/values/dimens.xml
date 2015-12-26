@@ -8,7 +8,12 @@
     <dimen name="btn_width">80dp</dimen>
     <dimen name="btn_2_width">180dp</dimen>
 
-    <dimen name="fragment_spin_width">180dp</dimen>
+    <dimen name="fragment_spin_width">200dp</dimen>
     <dimen name="fragment_spin_height">32dp</dimen>
-    <dimen name="fragment_inner_margin_top">110dp</dimen>
+    <dimen name="fragment_inner_margin_top">120dp</dimen>
+    <dimen name="fragment_inner_margin_Right">16dp</dimen>
+
+    <dimen name="fragment_inner_text_size_title">20sp</dimen>
+
+    <dimen name="button_margin_bottom">10dp</dimen>
 </resources>

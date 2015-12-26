@@ -59,10 +59,17 @@ public class FragmentGender extends Fragment {
     public void onPause() {
         super.onPause();
         SharedPreferences mSharedPreferences = getActivity().getSharedPreferences("Devfest", 0);
-        int gender = mSharedPreferences.getInt("gender", 0);
-        if(gender != spinner.getSelectedItemPosition()){
+        String gender = mSharedPreferences.getString("gender", "Empty");
+        int index = spinner.getSelectedItemPosition();
+        String selectedGender;
+        if (index == 0){
+            selectedGender = "Male";
+        }else{
+            selectedGender = "Female";
+        }
+        if(!selectedGender.equals(gender)){
             SharedPreferences.Editor e = mSharedPreferences.edit();
-            e.putInt("gender", spinner.getSelectedItemPosition());
+            e.putString("gender", selectedGender);
             e.commit();
         }
     }

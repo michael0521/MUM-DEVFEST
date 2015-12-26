@@ -2,25 +2,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context="com.mum.ten.devfest.FragmentStart">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
+    <RelativeLayout
+        android:layout_width="@dimen/fragment_spin_width"
         android:layout_height="wrap_content"
-        android:layout_gravity="top"
+        android:layout_gravity="top|right"
         android:layout_marginTop="@dimen/fragment_inner_margin_top"
-        android:text="@string/fragment_finish_result" />
+        android:layout_marginRight="@dimen/fragment_inner_margin_Right"
+        >
+        <TextView
+            android:id="@+id/result_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:textSize="@dimen/fragment_inner_text_size_title"
+            android:text="@string/fragment_finish_result_title" />
+        <TextView
+            android:id="@+id/result_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/result_title"
+            android:text="@string/fragment_finish_result" />
+    </RelativeLayout>
 
-    <Button
-        android:id="@+id/btn_finish"
-        android:layout_width="@dimen/btn_width"
+    <RelativeLayout
+        android:layout_width="@dimen/btn_2_width"
         android:layout_height="@dimen/btn_height"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginBottom="@dimen/button_margin_bottom"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:background="@color/colorPrimaryDark"
-        android:text="@string/btn_text_finish"
-        android:textColor="@color/colorButtonText"
-        android:layout_gravity="bottom|right"/>
+        android:layout_gravity="bottom|right">
+        <Button
+            android:id="@+id/btn_previous"
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="@dimen/btn_height"
+            android:text="@string/btn_text_previous"
+            android:textColor="@color/colorButtonText"
+            android:background="@drawable/button_background"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_gravity="left"/>
+
+        <Button
+            android:id="@+id/btn_finish"
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="@dimen/btn_height"
+            android:text="@string/btn_text_finish"
+            android:textColor="@color/colorButtonText"
+            android:background="@drawable/button_background"
+            android:layout_toRightOf="@id/btn_previous"/>
+    </RelativeLayout>
 
 </FrameLayout>

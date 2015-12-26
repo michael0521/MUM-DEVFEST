@@ -18,6 +18,7 @@ import android.widget.Button;
 public class FragmentFinish extends Fragment {
 
     Button btn_finish;
+    Button btn_previous;
     ViewPager mViewPager;
     public FragmentFinish() {
         // Required empty public constructor
@@ -31,6 +32,14 @@ public class FragmentFinish extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_fragment_finish, container, false);
+        btn_previous = (Button)view.findViewById(R.id.btn_previous);
+        btn_previous.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //goto gender fragment
+                mViewPager.setCurrentItem(mViewPager.getCurrentItem() - 1);
+            }
+        });
         btn_finish = (Button)view.findViewById(R.id.btn_finish);
         btn_finish.setOnClickListener(new View.OnClickListener() {
             @Override
