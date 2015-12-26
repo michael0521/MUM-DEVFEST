@@ -4,6 +4,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 
@@ -15,6 +16,10 @@ import java.util.Calendar;
 public class RemindersService extends Service {
 
     private AlarmManager[] alarmManagers;
+
+    private SharedPreferences preferences;
+
+    boolean drinkingIsChecked;
 
     @Nullable
     @Override
@@ -32,15 +37,21 @@ public class RemindersService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId){
 
         System.out.println("RemindersService is running");
-        boolean drinkingIsChecked = intent.getBooleanExtra("drinking", false);
-        System.out.println("Drinking setting is " + drinkingIsChecked);
+
+        if(intent != null) {
+            drinkingIsChecked = intent.getBooleanExtra("drinking", false);
+            System.out.println("Drinking setting from intent is " + drinkingIsChecked);
+        }else {
+            preferences = getSharedPreferences("Devfest", MODE_PRIVATE);
+            drinkingIsChecked = preferences.getBoolean("drinkingOption", false);
+            System.out.println("Drinking setting from preference is " + drinkingIsChecked);
+        }
 
         Intent drink = new Intent(RemindersService.this
                 , DrinkingService.class);
 
-
-        //String[] drinkingTimes = {"7:00", "9:00", "11:30", "13:30", "15:00", "17:00", "20:00", "22:00"};
-        String[] drinkingTimes = {"00:36", "00:37", "00:38"};
+        String[] drinkingTimes = {"7:00", "9:00", "11:30", "13:30", "15:00", "17:00", "20:00", "22:00"};
+        //String[] drinkingTimes = {"10:19", "10:58", "11:04"};
         alarmManagers = new AlarmManager[drinkingTimes.length];
         PendingIntent piDrinking = null;
         if(drinkingIsChecked) {
@@ -58,9 +69,13 @@ public class RemindersService extends Service {
 
                if (alarmManagers[i] != null) {
                    alarmManagers[i].cancel(piDrinking);
+                   System.out.println("pre-existing alarm canceled!");
                } else {
-                   alarmManagers[i] = (AlarmManager) getSystemService(ALARM_SERVICE);
-                   alarmManagers[i].set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), piDrinking);
+                   if(calendar.getTimeInMillis() >= System.currentTimeMillis()) {
+                       alarmManagers[i] = (AlarmManager) getSystemService(ALARM_SERVICE);
+                       alarmManagers[i].set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), piDrinking);
+                       System.out.println("New alarm is set!");
+                   }
                }
            }
         }else {
