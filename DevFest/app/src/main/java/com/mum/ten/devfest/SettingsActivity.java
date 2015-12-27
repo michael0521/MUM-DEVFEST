@@ -25,12 +25,11 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        preferences = getSharedPreferences("Devfest", MODE_PRIVATE);
         displayUserInfo();
 
         drinking_switcher = (Switch)findViewById(R.id.drinking_switcher);
         tm_switcher = (Switch)findViewById(R.id.tm_switcher);
-
-        preferences = getSharedPreferences("Devfest", MODE_PRIVATE);
 
         drinking_switcher.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -83,9 +82,11 @@ public class SettingsActivity extends AppCompatActivity {
     public void displayUserInfo(){
         //preferences.getString()
         TextView gender_value = (TextView)findViewById(R.id.gender_val);
-        gender_value.setText("Male");
+//        gender_value.setText("Male");
+        gender_value.setText(preferences.getString("gender","Male"));
         TextView age_value = (TextView)findViewById(R.id.age_val);
-        age_value.setText("33");
+//        age_value.setText("25");
+        age_value.setText(preferences.getString("age","25"));
         TextView dosha_value = (TextView)findViewById(R.id.type_val);
         dosha_value.setText("Pitta");
     }
