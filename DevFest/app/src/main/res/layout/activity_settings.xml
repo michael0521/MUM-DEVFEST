@@ -14,8 +14,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Reminders"
-        android:id="@+id/alerts" />
+        android:text="@string/settings_user_info"
+        android:id="@+id/userinfo" />
 
     <View
         android:layout_width="fill_parent"
@@ -31,15 +31,127 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Reminds me to drink water"
-            android:id="@+id/drinkingTxt"
-            android:gravity="bottom" />
+            android:text="@string/settings_user_gender"
+            android:id="@+id/gender_tv"
+            android:gravity="bottom"
+            android:layout_marginTop="@dimen/text_margin"
+            android:layout_weight="1" />
 
-        <Switch android:id="@+id/switcher"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/gender_value"
+            android:id="@+id/gender_val"
+            android:layout_marginTop="@dimen/text_margin"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/settings_user_age"
+            android:id="@+id/age_tv"
+            android:gravity="bottom"
+            android:layout_marginTop="@dimen/text_margin"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/age_value"
+            android:id="@+id/age_val"
+            android:layout_marginTop="@dimen/text_margin"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/settings_user_type"
+            android:id="@+id/type_tv"
+            android:gravity="bottom"
+            android:layout_marginTop="@dimen/text_margin"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/type_value"
+            android:id="@+id/type_val"
+            android:layout_marginTop="@dimen/text_margin"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/settings_alarms"
+        android:id="@+id/alarms"
+        android:layout_marginTop="@dimen/text_margin" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#bdbdbe" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/settings_drinking_reminder"
+            android:id="@+id/drinkingTxt"
+            android:layout_marginTop="@dimen/text_margin" />
+
+        <Switch android:id="@+id/drinking_switcher"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/text_margin" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/settings_tm_reminder"
+            android:id="@+id/tmTxt"
+            android:layout_marginTop="@dimen/text_margin" />
+
+        <Switch android:id="@+id/tm_switcher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/text_margin" />
 
     </LinearLayout>
 

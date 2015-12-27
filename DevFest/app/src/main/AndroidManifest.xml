@@ -38,15 +38,12 @@
 
         </activity>
 
-        <service android:name=".RemindersService">
-            <intent-filter>
-                <action android:name="REMINDER_SERVICE" />
-            </intent-filter>
-        </service>
         <service android:name=".DrinkingService">
-            <intent-filter>
-                <action android:name="DRINKING_SERVICE" />
-            </intent-filter>
+
+        </service>
+
+        <service android:name=".MeditationService">
+
         </service>
     </application>
 

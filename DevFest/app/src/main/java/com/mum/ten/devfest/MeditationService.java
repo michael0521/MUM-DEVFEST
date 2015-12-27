@@ -14,11 +14,11 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 
 /**
- * Created by yangxiaoming on 12/24/2015.
+ * Created by yangxiaoming on 12/26/2015.
  */
-public class DrinkingService extends Service {
+public class MeditationService extends Service {
 
-    static final int NOTIFICATION_ID = 0x123;
+    static final int NOTIFICATION_ID = 0x234;
 
     private NotificationManager nm;
 
@@ -33,13 +33,13 @@ public class DrinkingService extends Service {
         super.onCreate();
         nm = (NotificationManager)
                 getSystemService(NOTIFICATION_SERVICE);
-        System.out.println("Drinking Service is created");
+        System.out.println("Meditation Service is created");
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
-        System.out.println("Drinking Service is Running");
+        System.out.println("Meditation Service is Running");
 
         Bitmap ayurveda = BitmapFactory.decodeResource(getResources(), R.drawable.ayurveda);
         ayurveda = Bitmap.createScaledBitmap(ayurveda, 200, 200, false);
@@ -65,8 +65,8 @@ public class DrinkingService extends Service {
                 .setSmallIcon(R.drawable.bell)
                 .setLargeIcon(ayurveda)
                 .setContentIntent(resultPendingIntent)
-                .setContentTitle("Drinking Time")
-                .setContentText("Hi, your body needs a glass of water.")
+                .setContentTitle("TM Time")
+                .setContentText("Hi, you need to do meditation now.")
                 .setSound(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" + getPackageName() + "/" + R.raw.zenbell))
                         //.setSound(Uri.parse("android.resource" + "://" + getPackageName() + "/" + R.raw.zenbell))
                 .setDefaults(NotificationCompat.DEFAULT_LIGHTS | NotificationCompat.DEFAULT_VIBRATE)
@@ -82,6 +82,6 @@ public class DrinkingService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        System.out.println("Drinking Service is Destroyed");
+        System.out.println("Meditation Service is Destroyed");
     }
 }
