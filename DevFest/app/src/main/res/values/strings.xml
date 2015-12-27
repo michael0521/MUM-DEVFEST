@@ -32,5 +32,19 @@
     <string name="fragment_exit_dialog_button_cancel">Cancel</string>
     <string name="fragment_exit_dialog_message">You have not finished Quiz. Do you want to exit?</string>
 
+    <string name="settings_user_info">Personal Information</string>
+    <string name="settings_user_gender">Gender</string>
+    <string name="settings_user_age">Age</string>
+    <string name="settings_user_type">Dosha</string>
+    <string name="gender_value">none</string>
+    <string name="age_value">none</string>
+    <string name="type_value">none</string>
+
+    <string name="settings_alarms">Alarms</string>
+    <string name="settings_drinking_reminder">Remind me to drink water</string>
+    <string name="settings_tm_reminder">Remind me to do meditation</string>
+
+
+
 
 </resources>

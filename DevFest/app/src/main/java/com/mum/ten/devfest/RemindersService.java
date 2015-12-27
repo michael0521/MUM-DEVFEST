@@ -16,10 +16,16 @@ import java.util.Calendar;
 public class RemindersService extends Service {
 
     private AlarmManager[] alarmManagers;
+    private AlarmManager drikingAm;
+    private AlarmManager tmAm;
+    private int rq = 0;
+
+
 
     private SharedPreferences preferences;
 
-    boolean drinkingIsChecked;
+    private boolean drinkingIsChecked;
+    private boolean meditationIsChecked;
 
     @Nullable
     @Override
@@ -28,70 +34,91 @@ public class RemindersService extends Service {
     }
 
     @Override
-    public void onCreate(){
+    public void onCreate() {
         super.onCreate();
         System.out.println("RemindersService is created");
+        drikingAm = (AlarmManager) getSystemService(ALARM_SERVICE);
+        tmAm = (AlarmManager) getSystemService(ALARM_SERVICE);
     }
 
     @Override
-    public int onStartCommand(Intent intent, int flags, int startId){
+    public int onStartCommand(Intent intent, int flags, int startId) {
 
         System.out.println("RemindersService is running");
 
-        if(intent != null) {
-            drinkingIsChecked = intent.getBooleanExtra("drinking", false);
-            System.out.println("Drinking setting from intent is " + drinkingIsChecked);
-        }else {
-            preferences = getSharedPreferences("Devfest", MODE_PRIVATE);
-            drinkingIsChecked = preferences.getBoolean("drinkingOption", false);
-            System.out.println("Drinking setting from preference is " + drinkingIsChecked);
-        }
+        preferences = getSharedPreferences("Devfest", MODE_PRIVATE);
 
-        Intent drink = new Intent(RemindersService.this
-                , DrinkingService.class);
+        drinkingIsChecked = preferences.getBoolean("drinkingOption", false);
+        System.out.println("Drinking setting from preference is " + drinkingIsChecked);
+        meditationIsChecked = preferences.getBoolean("meditationOption", false);
+        System.out.println("Meditation setting from preference is " + meditationIsChecked);
 
-        String[] drinkingTimes = {"7:00", "9:00", "11:30", "13:30", "15:00", "17:00", "20:00", "22:00"};
-        //String[] drinkingTimes = {"10:19", "10:58", "11:04"};
-        alarmManagers = new AlarmManager[drinkingTimes.length];
-        PendingIntent piDrinking = null;
-        if(drinkingIsChecked) {
-           for(int i = 0; i < drinkingTimes.length; i++) {
-               piDrinking = PendingIntent.getService(
-                       RemindersService.this, i, drink, 0);
-               String[] hourMin = drinkingTimes[i].split(":");
-               int hour = Integer.parseInt(hourMin[0]);
-               int mins = Integer.parseInt(hourMin[1]);
 
-               Calendar calendar = Calendar.getInstance();
-               calendar.setTimeInMillis(System.currentTimeMillis());
-               calendar.set(Calendar.HOUR_OF_DAY, hour);
-               calendar.set(Calendar.MINUTE, mins);
+        //String[] drinkingTimes = {"7:00", "9:00", "11:30", "13:30", "15:00", "17:00", "20:00", "22:00"};
+        String[] drinkingTimes = {"10:19", "22:36", "22:37"};
+        String[] tmTimes = {"10:19", "21:39", "17:00"};
+        //alarmManagers = new AlarmManager[drinkingTimes.length];
 
-               if (alarmManagers[i] != null) {
-                   alarmManagers[i].cancel(piDrinking);
-                   System.out.println("pre-existing alarm canceled!");
-               } else {
-                   if(calendar.getTimeInMillis() >= System.currentTimeMillis()) {
-                       alarmManagers[i] = (AlarmManager) getSystemService(ALARM_SERVICE);
-                       alarmManagers[i].set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), piDrinking);
-                       System.out.println("New alarm is set!");
-                   }
-               }
-           }
-        }else {
-            for(int i = 0; i < drinkingTimes.length; i++) {
-                if (alarmManagers[i]!= null) {
-                    alarmManagers[i].cancel(piDrinking);
-                }
+        PendingIntent pendingIntent = null;
+
+//        if (drinkingIsChecked) {
+//            int drinkCode = 0;
+//            Intent drink = new Intent(RemindersService.this
+//                    , DrinkingService.class);
+//
+//            setAlarmManagers(drinkingTimes, pendingIntent, drink, drikingAm, drinkCode);
+//
+//        } else {
+//            if (drikingAm != null) {
+//                drikingAm.cancel(pendingIntent);
+//            }
+//        }
+
+        if (meditationIsChecked) {
+            int tmCode = 100;
+            Intent meditation = new Intent(RemindersService.this
+                    , MeditationService.class);
+
+            setAlarmManagers(tmTimes, pendingIntent, meditation, tmAm, tmCode);
+
+        } else {
+            if (tmAm != null) {
+                tmAm.cancel(pendingIntent);
             }
         }
 
         return START_STICKY;
     }
 
+    public void setAlarmManagers(String[] eventTimes, PendingIntent pendingIntent, Intent itent, AlarmManager am, int k) {
+
+        for (int i = 0; i < eventTimes.length; i++) {
+            pendingIntent = PendingIntent.getService(
+                    RemindersService.this, ++k, itent, 0);
+
+            String[] hourMin = eventTimes[i].split(":");
+            int hour = Integer.parseInt(hourMin[0]);
+            int mins = Integer.parseInt(hourMin[1]);
+
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(System.currentTimeMillis());
+            calendar.set(Calendar.HOUR_OF_DAY, hour);
+            calendar.set(Calendar.MINUTE, mins);
+
+            if (calendar.getTimeInMillis() >= System.currentTimeMillis()) {
+                am.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+                System.out.println("New alarm is set! " + k);
+            } else {
+                if (am != null)
+                    am.cancel(pendingIntent);
+            }
+        }
+
+    }
+
 
     @Override
-    public void onDestroy(){
+    public void onDestroy() {
         super.onDestroy();
         System.out.println("Reminders Service is Destroyed");
     }
