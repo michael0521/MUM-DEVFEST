@@ -10,10 +10,9 @@
     tools:context="com.mum.ten.devfest.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <ListView
-        android:id="@+id/list_acts"
+    <ExpandableListView
+        android:id="@+id/list_acts_expand"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"/>
 
-    </ListView>
 </RelativeLayout>

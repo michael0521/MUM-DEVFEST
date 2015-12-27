@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/act_item_height"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/list_item_title_padding_top"
+    android:paddingBottom="@dimen/list_item_title_padding_top">
+
+    <TextView
+        android:id="@+id/laptop_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/fragment_inner_text_size_title"
+        android:paddingLeft="@dimen/list_item_subtitle_padding_left" />
+
+</LinearLayout>

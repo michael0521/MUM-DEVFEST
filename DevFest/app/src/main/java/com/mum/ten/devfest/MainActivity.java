@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ListView;
+import android.widget.ExpandableListView;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -16,6 +16,9 @@ public class MainActivity extends AppCompatActivity {
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
+
+    ExpandableListView listActsEx;
+    MyExpandableListAdapter adapterEx;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +37,10 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        ListView listActs = (ListView) findViewById(R.id.list_acts);
-        MyListAdapter adapter = new MyListAdapter(this);
-        listActs.setAdapter(adapter);
+        // expandable list view
+        listActsEx = (ExpandableListView) findViewById(R.id.list_acts_expand);
+        adapterEx = new MyExpandableListAdapter(this);
+        listActsEx.setAdapter(adapterEx);
     }
 
 
