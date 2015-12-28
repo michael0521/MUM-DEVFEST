@@ -10,6 +10,7 @@
         android:id="@+id/laptop_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="@dimen/fragment_inner_text_size_title"
         android:paddingLeft="@dimen/list_item_subtitle_padding_left" />
 

@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/activity_vertical_margin"
-            android:textSize="@dimen/fragment_inner_text_size_title"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/fragment_gender_title"
             />
         <Spinner
@@ -38,6 +38,7 @@
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:background="@drawable/button_background"
         android:layout_gravity="bottom|right"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/colorButtonText"
         android:text="@string/btn_text_next"/>
 

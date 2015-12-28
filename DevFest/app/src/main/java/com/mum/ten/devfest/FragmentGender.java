@@ -46,6 +46,7 @@ public class FragmentGender extends Fragment {
             }
         });
 
+        items.clear();
         items.add(getResources().getString(R.string.gender_male));
         items.add(getResources().getString(R.string.gender_female));
         spinner = (Spinner)view.findViewById(R.id.spinner_gender);

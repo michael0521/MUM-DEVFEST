@@ -18,12 +18,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/activity_vertical_margin"
-            android:textSize="@dimen/fragment_inner_text_size_title"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/fragment_finish_result_title" />
         <TextView
             android:id="@+id/result_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:layout_below="@id/result_title"
             android:text="@string/fragment_finish_result" />
     </RelativeLayout>
@@ -40,6 +41,7 @@
             android:layout_height="@dimen/btn_height"
             android:text="@string/btn_text_previous"
             android:textColor="@color/colorButtonText"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:background="@drawable/button_background"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:layout_gravity="left"/>
@@ -50,6 +52,7 @@
             android:layout_height="@dimen/btn_height"
             android:text="@string/btn_text_finish"
             android:textColor="@color/colorButtonText"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:background="@drawable/button_background"
             android:layout_toRightOf="@id/btn_previous"/>
     </RelativeLayout>
