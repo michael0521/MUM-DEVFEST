@@ -22,9 +22,12 @@ public class WelcomeActivity extends AppCompatActivity {
 
         viewPager = (ViewPager)findViewById(R.id.view_pager);
         List<Fragment> fragmentList = new ArrayList<Fragment>();
+        fragmentList.add(new FragmentLogin().setViewPager(viewPager));
+        fragmentList.add(new FragmentUserInfo().setViewPager(viewPager));
         fragmentList.add(new FragmentStart().setViewPager(viewPager));
-        fragmentList.add(new FragmentGender().setViewPager(viewPager));
-        fragmentList.add(new FragmentAge().setViewPager(viewPager));
+        fragmentList.add(new FragmentQuiz1().setViewPager(viewPager));
+        fragmentList.add(new FragmentQuiz2().setViewPager(viewPager));
+        fragmentList.add(new FragmentQuiz3().setViewPager(viewPager));
         fragmentList.add(new FragmentFinish().setViewPager(viewPager));
 
         MyFragmentPagerAdapter myFragmentPagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), fragmentList);

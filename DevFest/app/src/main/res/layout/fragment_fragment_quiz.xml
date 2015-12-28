@@ -5,35 +5,29 @@
     android:background="@drawable/background"
     tools:context="com.mum.ten.devfest.FragmentStart">
 
-    <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
-        android:layout_width="@dimen/fragment_spin_width"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_gravity="top|right"
         android:layout_marginTop="@dimen/fragment_inner_margin_top"
         android:layout_marginRight="@dimen/fragment_inner_margin_Right"
         >
         <TextView
-            android:id="@+id/result_title"
+            android:id="@+id/label_quiz_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/activity_vertical_margin"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/fragment_finish_result_title" />
-        <TextView
-            android:id="@+id/result_content"
+            android:text="Question"
+            />
+        <Spinner
+            android:id="@+id/spinner_quiz_items"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_below="@id/result_title"
-            android:text="@string/fragment_finish_result" />
+            android:layout_below="@+id/label_quiz_name"
+            >
 
-        <ImageView
-            android:id="@+id/result_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/result_content"
-            android:layout_marginTop="@dimen/activity_vertical_margin"/>
+        </Spinner>
     </RelativeLayout>
 
     <RelativeLayout
@@ -48,19 +42,19 @@
             android:layout_height="@dimen/btn_height"
             android:text="@string/btn_text_previous"
             android:textColor="@color/colorButtonText"
-            android:textAppearance="?android:attr/textAppearanceMedium"
             android:background="@drawable/button_background"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:layout_gravity="left"/>
 
         <Button
-            android:id="@+id/btn_finish"
+            android:id="@+id/btn_next"
             android:layout_width="@dimen/btn_width"
             android:layout_height="@dimen/btn_height"
-            android:text="@string/btn_text_finish"
+            android:text="@string/btn_text_next"
             android:textColor="@color/colorButtonText"
-            android:textAppearance="?android:attr/textAppearanceMedium"
             android:background="@drawable/button_background"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:layout_toRightOf="@id/btn_previous"/>
     </RelativeLayout>
 

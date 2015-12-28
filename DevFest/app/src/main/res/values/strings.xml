@@ -17,7 +17,7 @@
     <string name="fragment_gender_title">Gender</string>
     <string name="fragment_age_title">Age</string>
     <string name="fragment_body_type_title">Body Type</string>
-    <string name="fragment_finish_result">Congratulations, you have determined that you have a "Vata-Pitta-Kapha" Constitution.</string>
+    <string name="fragment_finish_result">Congratulations, you have determined that you have a %1$s Constitution.</string>
     <string name="fragment_finish_result_title">Result</string>
     <string name="btn_text_start">Start</string>
     <string name="btn_text_previous">Prev</string>
@@ -26,6 +26,10 @@
 
     <string name="gender_female">Female</string>
     <string name="gender_male">Male</string>
+
+    <string name="select_item_always">Always</string>
+    <string name="select_item_sometimes">Sometimes</string>
+    <string name="select_item_few">Few</string>
 
     <string name="fragment_exit_dialog_title">Exit</string>
     <string name="fragment_exit_dialog_button_yes">Yes</string>

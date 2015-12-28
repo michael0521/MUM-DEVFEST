@@ -1,0 +1,149 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context="com.mum.ten.devfest.FragmentStart">
+
+    <RelativeLayout
+        android:layout_width="@dimen/fragment_spin_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|right"
+        android:layout_marginTop="@dimen/fragment_inner_margin_top"
+        android:layout_marginRight="@dimen/fragment_inner_margin_Right"
+        >
+        <TextView
+            android:id="@+id/label_user_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="User Info Editor"/>
+
+        <TextView
+            android:id="@+id/label_first_name"
+            android:layout_width="@dimen/fragment_spin_width_half"
+            android:layout_height="@dimen/fragment_spin_height"
+            android:layout_below="@id/label_user_info"
+            android:padding="3dp"
+            android:layout_marginBottom="@dimen/fragment_inner_vertical_margin"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="First Name"/>
+        <EditText
+            android:id="@+id/edit_first_name"
+            android:layout_width="@dimen/fragment_spin_width_half"
+            android:layout_height="@dimen/fragment_spin_height"
+            android:layout_below="@id/label_user_info"
+            android:layout_toRightOf="@id/label_first_name"
+            android:layout_marginBottom="@dimen/fragment_inner_vertical_margin"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:singleLine="true" />
+
+        <TextView
+            android:id="@+id/label_last_name"
+            android:layout_width="@dimen/fragment_spin_width_half"
+            android:layout_height="@dimen/fragment_spin_height"
+            android:layout_below="@id/label_first_name"
+            android:padding="3dp"
+            android:layout_marginBottom="@dimen/fragment_inner_vertical_margin"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Last Name" />
+        <EditText
+            android:id="@+id/edit_last_name"
+            android:layout_width="@dimen/fragment_spin_width_half"
+            android:layout_height="@dimen/fragment_spin_height"
+            android:layout_below="@id/label_first_name"
+            android:layout_toRightOf="@id/label_last_name"
+            android:layout_marginBottom="@dimen/fragment_inner_vertical_margin"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:singleLine="true" />
+
+        <TextView
+            android:id="@+id/label_password"
+            android:layout_width="@dimen/fragment_spin_width_half"
+            android:layout_height="@dimen/fragment_spin_height"
+            android:layout_below="@id/label_last_name"
+            android:padding="3dp"
+            android:layout_marginBottom="@dimen/fragment_inner_vertical_margin"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Password"/>
+        <EditText
+            android:id="@+id/edit_password"
+            android:layout_width="@dimen/fragment_spin_width_half"
+            android:layout_height="@dimen/fragment_spin_height"
+            android:layout_below="@id/label_last_name"
+            android:layout_toRightOf="@id/label_password"
+            android:layout_marginBottom="@dimen/fragment_inner_vertical_margin"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:singleLine="true"
+            android:password="true" />
+
+        <TextView
+            android:id="@+id/label_age"
+            android:layout_width="@dimen/fragment_spin_width_half"
+            android:layout_height="@dimen/fragment_spin_height"
+            android:layout_below="@id/label_password"
+            android:padding="3dp"
+            android:layout_marginBottom="@dimen/fragment_inner_vertical_margin"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/fragment_age_title"/>
+        <EditText
+            android:id="@+id/edit_age"
+            android:layout_width="@dimen/fragment_spin_width_half"
+            android:layout_height="@dimen/fragment_spin_height"
+            android:layout_below="@id/label_password"
+            android:layout_toRightOf="@id/label_age"
+            android:layout_marginBottom="@dimen/fragment_inner_vertical_margin"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:singleLine="true"
+            android:maxLength="3"
+            android:numeric="signed"/>
+
+        <TextView
+            android:id="@+id/label_gender"
+            android:layout_width="@dimen/fragment_spin_width_half"
+            android:layout_height="@dimen/fragment_spin_height"
+            android:layout_below="@id/label_age"
+            android:padding="3dp"
+            android:layout_marginBottom="@dimen/fragment_inner_vertical_margin"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/fragment_gender_title"/>
+        <Spinner
+            android:id="@+id/spinner_gender"
+            android:layout_width="@dimen/fragment_spin_width_half"
+            android:layout_height="@dimen/fragment_spin_height"
+            android:layout_below="@id/label_age"
+            android:layout_toRightOf="@id/label_gender"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="@dimen/btn_2_width"
+        android:layout_height="@dimen/btn_height"
+        android:layout_marginBottom="@dimen/button_margin_bottom"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_gravity="bottom|right">
+        <Button
+            android:id="@+id/btn_previous"
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="@dimen/btn_height"
+            android:text="@string/btn_text_previous"
+            android:textColor="@color/colorButtonText"
+            android:background="@drawable/button_background"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_gravity="left"/>
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="@dimen/btn_height"
+            android:text="@string/btn_text_next"
+            android:textColor="@color/colorButtonText"
+            android:background="@drawable/button_background"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_toRightOf="@id/btn_previous"/>
+    </RelativeLayout>
+
+</FrameLayout>

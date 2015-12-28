@@ -9,13 +9,12 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -23,52 +22,52 @@ import java.util.Calendar;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentFinish extends Fragment {
+public class FragmentLogin extends Fragment {
 
-    TextView result;
-    Button btn_finish;
-    Button btn_previous;
+    Button btn_join;
+    Button btn_sign;
+    EditText edit_firstName;
+    EditText edit_lastName;
+    EditText edit_password;
     ViewPager mViewPager;
-    ImageView result_img;
 
-    String dosha_types[] = {"vata", "pitta", "kapha", "vata-pitta-kapha"};
-    int drawables[] = {R.drawable.vata, R.drawable.pitta, R.drawable.kapha, R.drawable.dosha_vata_pitta_kapha};
-
-    public FragmentFinish() {
+    public FragmentLogin() {
         // Required empty public constructor
     }
 
-    public FragmentFinish setViewPager(ViewPager viewPager){
+    public FragmentLogin setViewPager(ViewPager viewPager){
         mViewPager = viewPager;
         return this;
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_fragment_finish, container, false);
+        View view = inflater.inflate(R.layout.fragment_fragment_login, container, false);
 
-        double dd = Math.random();
-        int index = (int)(dd*4);
-        result = (TextView) view.findViewById(R.id.result_content);
-        result.setText(String.format(getActivity().
-                getResources().getString(R.string.fragment_finish_result), dosha_types[index]));
-
-        result_img = (ImageView) view.findViewById(R.id.result_img);
-        result_img.setImageResource(drawables[index]);
-
-        btn_previous = (Button)view.findViewById(R.id.btn_previous);
-        btn_previous.setOnClickListener(new View.OnClickListener() {
+        edit_firstName = (EditText)view.findViewById(R.id.edit_first_name);
+        edit_lastName = (EditText)view.findViewById(R.id.edit_last_name);
+        edit_password = (EditText)view.findViewById(R.id.edit_password);
+        btn_join = (Button)view.findViewById(R.id.btn_join);
+        btn_join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //goto gender fragment
-                mViewPager.setCurrentItem(mViewPager.getCurrentItem() - 1);
+                mViewPager.setCurrentItem(mViewPager.getCurrentItem() + 1);
             }
         });
-        btn_finish = (Button)view.findViewById(R.id.btn_finish);
-        btn_finish.setOnClickListener(new View.OnClickListener() {
+
+        btn_sign = (Button)view.findViewById(R.id.btn_sign);
+        btn_sign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //finish quiz and goto main activity
+                //goto main activity
+                if(edit_password.getText().toString().trim().isEmpty()
+                        || edit_lastName.getText().toString().trim().isEmpty()
+                        || edit_firstName.getText().toString().trim().isEmpty()){
+                    Toast.makeText(getActivity(), "Please input name and password,thank you!!",Toast.LENGTH_SHORT);
+                    return;
+                }
+                Toast.makeText(getActivity(), "Success!!",Toast.LENGTH_SHORT);
                 SharedPreferences mSharedPreferences = getActivity().getSharedPreferences("Devfest", 0);
                 SharedPreferences.Editor e = mSharedPreferences.edit();
                 e.putBoolean("ifEntryWelcome", true);
@@ -76,7 +75,7 @@ public class FragmentFinish extends Fragment {
 
                 startAlarmService();
 
-                Intent intent = new Intent(getActivity(),MainActivity.class);
+                Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
                 getActivity().finish();
             }
