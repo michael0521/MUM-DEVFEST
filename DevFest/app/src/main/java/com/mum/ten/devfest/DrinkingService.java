@@ -38,6 +38,13 @@ public class DrinkingService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        if(intent!= null && intent.getAction() != null && (intent.getAction().equals("ACTION_BTN_Ok")
+                || intent.getAction().equals("ACTION_BTN_IGNORE")
+                || intent.getAction().equals("ACTION_BTN_POSTPONE"))){
+            //Do something after click the button is notification
+            nm.cancel(NOTIFICATION_ID);
+            return START_STICKY;
+        }
 
         System.out.println("Drinking Service is Running");
 
@@ -59,6 +66,20 @@ public class DrinkingService extends Service {
         PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(
                 0, PendingIntent.FLAG_UPDATE_CURRENT);
 
+        // button intent
+        Intent btnIntentOk = new Intent(this, this.getClass());
+        btnIntentOk.setAction("ACTION_BTN_Ok");
+        PendingIntent btnPendingIntentOk =  PendingIntent.getService(this, 0, btnIntentOk, 0);
+
+        Intent btnIntentIgnore = new Intent(this, this.getClass());
+        btnIntentIgnore.setAction("ACTION_BTN_IGNORE");
+        PendingIntent btnPendingIntentIgnore =  PendingIntent.getService(this, 0, btnIntentIgnore, 0);
+
+        Intent btnIntentPostpone = new Intent(this, this.getClass());
+        btnIntentPostpone.setAction("ACTION_BTN_POSTPONE");
+        PendingIntent btnPendingIntentPostpone =  PendingIntent.getService(this, 0, btnIntentPostpone, 0);
+
+
         NotificationCompat.Builder notify = new NotificationCompat.Builder(this)
                 .setAutoCancel(true)
                 .setTicker("You've got an Alarm!")
@@ -67,6 +88,9 @@ public class DrinkingService extends Service {
                 .setContentIntent(resultPendingIntent)
                 .setContentTitle("Drinking Time")
                 .setContentText("Hi, your body needs a glass of water.")
+                .addAction(0, "Ignore", btnPendingIntentIgnore)
+                .addAction(0, "Ok", btnPendingIntentOk)
+                .addAction(0, "Postpone", btnPendingIntentPostpone)
                 .setSound(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" + getPackageName() + "/" + R.raw.zenbell))
                         //.setSound(Uri.parse("android.resource" + "://" + getPackageName() + "/" + R.raw.zenbell))
                 .setDefaults(NotificationCompat.DEFAULT_LIGHTS | NotificationCompat.DEFAULT_VIBRATE)

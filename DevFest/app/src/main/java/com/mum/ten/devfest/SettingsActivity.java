@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class SettingsActivity extends AppCompatActivity {
+    static final String[] drinkingTimes = {"01:05", "01:06", "00:52"};
+    static final String[] tmTimes = {"10:19", "16:17", "16:22"};
 
     private Switch drinking_switcher;
     private Switch tm_switcher;
@@ -49,7 +51,7 @@ public class SettingsActivity extends AppCompatActivity {
                 editor = preferences.edit();
                 editor.putBoolean("drinkingOption", isChecked);
                 editor.commit();
-                String[] drinkingTimes = {"10:19", "23:48", "23:20"};
+//                String[] drinkingTimes = {"00:36", "00:37", "23:52"};
                 if (isChecked == true) {
                     //System.out.println("drinking switcher is changed to " + isChecked);
                     boolean drinkingOption = preferences.getBoolean("drinkingOption", false);
@@ -73,7 +75,7 @@ public class SettingsActivity extends AppCompatActivity {
                 editor = preferences.edit();
                 editor.putBoolean("meditationOption", isChecked);
                 editor.commit();
-                String[] tmTimes = {"10:19", "16:17", "16:22"};
+//                String[] tmTimes = {"10:19", "16:17", "16:22"};
                 if (isChecked == true) {
                     //System.out.println("meditation switcher is changed to " + isChecked);
                     boolean meditationOption = preferences.getBoolean("meditationOption", false);
