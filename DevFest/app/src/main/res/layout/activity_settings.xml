@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -155,4 +158,69 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/settings_diet_reminder"
+            android:id="@+id/dietTxt"
+            android:layout_marginTop="@dimen/text_margin" />
+
+        <Switch android:id="@+id/diet_switcher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/text_margin" />
+
+    </LinearLayout>
+
+    <!--LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/settings_stretch_reminder"
+            android:id="@+id/stretchTxt"
+            android:layout_marginTop="@dimen/text_margin" />
+
+        <Switch android:id="@+id/stretch_switcher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/text_margin" />
+
+    </LinearLayout-->
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/settings_user_data"
+        android:id="@+id/user_data"
+        android:layout_marginTop="@dimen/text_margin" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#bdbdbe"
+        android:layout_marginBottom="@dimen/text_margin" />
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/chart_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 </LinearLayout>
+

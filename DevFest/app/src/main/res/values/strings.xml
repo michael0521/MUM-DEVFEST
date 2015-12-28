@@ -32,7 +32,7 @@
     <string name="fragment_exit_dialog_button_cancel">Cancel</string>
     <string name="fragment_exit_dialog_message">You have not finished Quiz. Do you want to exit?</string>
 
-    <string name="settings_user_info">Personal Information</string>
+    <string name="settings_user_info">User Profile</string>
     <string name="settings_user_gender">Gender</string>
     <string name="settings_user_age">Age</string>
     <string name="settings_user_type">Dosha</string>
@@ -43,8 +43,18 @@
     <string name="settings_alarms">Alarms</string>
     <string name="settings_drinking_reminder">Remind me to drink water</string>
     <string name="settings_tm_reminder">Remind me to do meditation</string>
+    <string name="settings_diet_reminder">Remind me to balance diet</string>
+    <string name="settings_stretch_reminder">Remind me to stretch out</string>
 
+    <string name="settings_user_data">Weekly Report</string>
+    <string name="chart_label_drink">Drinking</string>
+    <string name="chart_label_tm">Meditation</string>
+    <string name="chart_label_diet">Diet</string>
+    <string name="chart_label_stretch">Stretching</string>
 
-
+    <color name="chart_color_drink">#576F86</color>
+    <color name="chart_color_tm">#E7655A</color>
+    <color name="chart_color_diet">#F6CE5D</color>
+    <color name="chart_color_stretch">#BAE6FB</color>
 
 </resources>

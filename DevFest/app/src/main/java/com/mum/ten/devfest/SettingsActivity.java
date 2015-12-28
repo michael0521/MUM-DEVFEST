@@ -11,6 +11,12 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class SettingsActivity extends AppCompatActivity {
@@ -20,6 +26,8 @@ public class SettingsActivity extends AppCompatActivity {
 
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;
+
+    private int DATA_COUNT = 7;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +73,7 @@ public class SettingsActivity extends AppCompatActivity {
                 editor = preferences.edit();
                 editor.putBoolean("meditationOption", isChecked);
                 editor.commit();
-                String[] tmTimes = {"10:19", "23:49", "23:38"};
+                String[] tmTimes = {"10:19", "16:17", "16:22"};
                 if (isChecked == true) {
                     //System.out.println("meditation switcher is changed to " + isChecked);
                     boolean meditationOption = preferences.getBoolean("meditationOption", false);
@@ -80,6 +88,10 @@ public class SettingsActivity extends AppCompatActivity {
                 }
             }
         });
+
+
+        BarChart chart_bar = (BarChart)findViewById(R.id.chart_bar);
+        chart_bar.setData(getBarData());
     }
 
     public void displayUserInfo(){
@@ -130,5 +142,68 @@ public class SettingsActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+
+    private BarData getBarData(){
+        BarDataSet dataSetA = new BarDataSet(getChartData(), getString(R.string.app_name));
+        //設定顏色
+        dataSetA.setColors(getChartColors());
+        //設定顯示字串
+        dataSetA.setStackLabels(getStackLabels());
+
+        ArrayList<BarDataSet> dataSets = new ArrayList<>();
+        dataSets.add(dataSetA); // add the datasets
+
+        return new BarData(getLabels(), dataSets);
+    }
+
+    private String[] getStackLabels(){
+        return new String[]{getString(R.string.chart_label_drink),
+                getString(R.string.chart_label_tm),
+                getString(R.string.chart_label_diet),
+                getString(R.string.chart_label_stretch)};
+    }
+
+    private int[] getChartColors() {
+        int[] colors = new int[]{getResourceColor(R.color.chart_color_drink),
+                getResourceColor(R.color.chart_color_tm),
+                getResourceColor(R.color.chart_color_diet)
+                ,getResourceColor(R.color.chart_color_stretch) };
+        return colors;
+    }
+
+    private int getResourceColor(int resID){
+        return getResources().getColor(resID);
+    }
+
+    private ArrayList<BarEntry> getChartData(){
+        final int DATA_COUNT = 7;
+
+        ArrayList<BarEntry> chartData = new ArrayList<>();
+
+        for(int i=0;i<DATA_COUNT;i++){
+            float credit_drink = i*5;
+            float credit_tm = i*2;
+            float credit_diet = i*2;
+            float credit_strech = i*4;
+            chartData.add(new BarEntry(new float[]{credit_strech, credit_diet, credit_tm, credit_drink}, i));
+        }
+        return chartData;
+    }
+
+    private ArrayList<String> getLabels(){
+        ArrayList<String> chartLabels = new ArrayList<>();
+//        for(int i=0;i<DATA_COUNT;i++){
+//            chartLabels.add("D"+i);
+//        }
+        chartLabels.add("Mon");
+        chartLabels.add("Tue");
+        chartLabels.add("Wen");
+        chartLabels.add("Thu");
+        chartLabels.add("Fri");
+        chartLabels.add("Sat");
+        chartLabels.add("Sun");
+        return chartLabels;
     }
 }
