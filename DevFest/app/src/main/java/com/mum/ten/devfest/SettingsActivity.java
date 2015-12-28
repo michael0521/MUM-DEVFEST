@@ -162,6 +162,7 @@ public class SettingsActivity extends AppCompatActivity {
         return new String[]{getString(R.string.chart_label_drink),
                 getString(R.string.chart_label_tm),
                 getString(R.string.chart_label_diet),
+                //getString(R.string.chart_label_stretch)};
                 getString(R.string.chart_label_stretch)};
     }
 
@@ -169,6 +170,7 @@ public class SettingsActivity extends AppCompatActivity {
         int[] colors = new int[]{getResourceColor(R.color.chart_color_drink),
                 getResourceColor(R.color.chart_color_tm),
                 getResourceColor(R.color.chart_color_diet)
+                //,getResourceColor(R.color.chart_color_stretch) };
                 ,getResourceColor(R.color.chart_color_stretch) };
         return colors;
     }
@@ -187,7 +189,8 @@ public class SettingsActivity extends AppCompatActivity {
             float credit_tm = i*2;
             float credit_diet = i*2;
             float credit_strech = i*4;
-            chartData.add(new BarEntry(new float[]{credit_strech, credit_diet, credit_tm, credit_drink}, i));
+            //chartData.add(new BarEntry(new float[]{credit_strech, credit_diet, credit_tm, credit_drink}, i));
+            chartData.add(new BarEntry(new float[]{credit_diet, credit_tm, credit_drink}, i));
         }
         return chartData;
     }
