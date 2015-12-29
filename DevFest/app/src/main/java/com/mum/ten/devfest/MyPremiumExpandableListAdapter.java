@@ -5,63 +5,49 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
  * Created by Administrator on 12/26/2015.
  */
-public class MyExpandableListAdapter extends BaseExpandableListAdapter{
-    static final int ALERT_TOTAL = 3;
-    static final int ALERT_DRINK = 0;
-    static final int ALERT_TM = 1;
-    static final int ALERT_FOOD = 2;
+public class MyPremiumExpandableListAdapter extends BaseExpandableListAdapter{
+    static final int products_total = 4;
+
+    static final int images[] = {R.drawable.product1, R.drawable.product2, R.drawable.product3, R.drawable.product4};
+
+    static final String products[] = {
+            "Amrit Kalash Ambrosia | For super antioxidant power, 60 Herbal Tablets",
+            "Aci-Balance | To help balance stomach acidity, 60 Herbal Tablets",
+            "Aller-GI | Supports natural resistance to food allergens, 60 Vegetarian Capsules",
+            "Blissful Sleep | To improve sleep quality, 30 Herbal Tablets"
+    };
 
     private Context mContext;
 
-    public MyExpandableListAdapter(Context context) {
+    public MyPremiumExpandableListAdapter(Context context) {
         mContext = context;
     }
 
     @Override
     public int getGroupCount() {
-        return ALERT_TOTAL;
-    }
-
-    @Override
-    public int getChildrenCount(int groupPosition) {
         return 1;
     }
 
     @Override
+    public int getChildrenCount(int groupPosition) {
+        return products_total;
+    }
+
+    @Override
     public Object getGroup(int groupPosition) {
-        if(groupPosition == ALERT_DRINK)
-            return mContext.getResources().getString(R.string.action_item_title_drink);
-        else if (groupPosition == ALERT_TM)
-            return mContext.getResources().getString(R.string.action_item_title_TM);
-        else if (groupPosition == ALERT_FOOD)
-            return mContext.getResources().getString(R.string.action_item_title_food);
-        return null;
+        return "Products";
+
     }
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        if(groupPosition == ALERT_DRINK) {
-            String dringk_note = "Alert at";
-            for (int i = 0; i < SettingsActivity.drinkingTimes.length; i++){
-                dringk_note =  dringk_note + " " + SettingsActivity.drinkingTimes[i];
-            }
-            return mContext.getResources().getString(R.string.action_item_subtitle_drink) + dringk_note;
-        }
-        else if (groupPosition == ALERT_TM){
-            String dringk_note = "Alert at ";
-            for (int i = 0; i < SettingsActivity.tmTimes.length; i++){
-                dringk_note = dringk_note + " " + SettingsActivity.tmTimes[i];
-            }
-            return mContext.getResources().getString(R.string.action_item_subtitle_TM) + dringk_note;
-        }
-        else if (groupPosition == ALERT_FOOD)
-            return mContext.getResources().getString(R.string.action_item_subtitle_food);
-        return null;
+        return products[childPosition];
     }
 
     @Override
@@ -97,10 +83,13 @@ public class MyExpandableListAdapter extends BaseExpandableListAdapter{
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.act_item_child, null);
+            convertView = inflater.inflate(R.layout.act_item_child_withpic, null);
         }
         TextView item = (TextView) convertView.findViewById(R.id.laptop);
         item.setText(getChild(groupPosition, childPosition).toString());
+        ImageView icon = (ImageView) convertView.findViewById(R.id.lap_icon);
+        icon.setImageResource(images[childPosition]);
+
 
         return convertView;
     }

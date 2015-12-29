@@ -20,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
     ExpandableListView listActsEx;
     MyExpandableListAdapter adapterEx;
 
+    ExpandableListView listActsExPremium;
+    MyPremiumExpandableListAdapter adapterExPremium;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
         listActsEx = (ExpandableListView) findViewById(R.id.list_acts_expand);
         adapterEx = new MyExpandableListAdapter(this);
         listActsEx.setAdapter(adapterEx);
+
+        listActsExPremium = (ExpandableListView) findViewById(R.id.list_acts_expand_premium);
+        adapterExPremium = new MyPremiumExpandableListAdapter(this);
+        listActsExPremium.setAdapter(adapterExPremium);
     }
 
 
