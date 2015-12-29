@@ -5,9 +5,9 @@
     <string name="action_item_title_TM">TM</string>
     <string name="action_item_title_food">Food</string>
 
-    <string name="action_item_subtitle_drink">Read the following to find out what is the best time in the day to drink water in order to maximise its effectiveness on your body.</string>
-    <string name="action_item_subtitle_TM">This alert is for drinking TM. Follow the rhythm, you will get a healthy habit of drinking TM. Please follow it. It is scientific research results.</string>
-    <string name="action_item_subtitle_food">This alert is for drinking Food. Follow the rhythm, you will get a healthy habit of drinking Food. Please follow it. It is scientific research results.</string>
+    <string name="action_item_subtitle_drink">People need a healthy habit of drinking TM. Please follow our advices. It is from scientific research results. \nRead the following to find out what is the best time in the day to drink water in order to maximise its effectiveness on your body : \n</string>
+    <string name="action_item_subtitle_TM">People need a healthy habit of TM. Please follow our advices. It is from scientific research results. \nRead the following to find out what is the best time in the day to drink water in order to maximise its effectiveness on your body : \n</string>
+    <string name="action_item_subtitle_food">People need a healthy habit of Healthy Food. Our ayurvedic dietary guide is educational. It is from scientific research results. \nWe will give you Ayurvedic Recipes once a day. Specific adjustments for individual requirements may need to be made.</string>
     <string name="title_activity_welcome">Ayurveda Assistant</string>
     <string name="title_activity_settings">Settings</string>
 
