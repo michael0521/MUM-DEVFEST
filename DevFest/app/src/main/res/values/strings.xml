@@ -12,7 +12,7 @@
     <string name="title_activity_settings">Settings</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="fragment_start_hello"> In Ayurveda, seven dosha-predominant Prakritis are described: Vata-predominant, Pitta-predominant, Kapha-predominant; three dual Prakritis, where two doshas are equally, or nearly equally predominant: Vata-Pitta predominant, Pitta-Kapha predominant and Vata-Kapha predominant; and one Prakriti that has all three doshas equally prominent: Vata-Pitta-Kapha predominant. </string>
+    <string name="fragment_start_hello"> In Ayurveda, four dosha predominant Prakritis are described: Vata predominant, Pitta predominant, Kapha predominant; and one Prakriti that has all three doshas equally prominent: Vata-Pitta-Kapha predominant. </string>
     <string name="fragment_start_introduction_title">Introduction</string>
     <string name="fragment_gender_title">Gender</string>
     <string name="fragment_age_title">Age</string>

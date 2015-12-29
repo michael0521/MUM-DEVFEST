@@ -221,7 +221,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/download1"
             android:layout_marginRight="10dp"
-            android:layout_marginLeft="30dp"/>
+            android:layout_marginLeft="@dimen/setting_social_margin_left"/>
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

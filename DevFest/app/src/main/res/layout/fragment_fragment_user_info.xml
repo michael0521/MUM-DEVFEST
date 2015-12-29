@@ -114,6 +114,7 @@
             android:layout_width="@dimen/fragment_spin_width_half"
             android:layout_height="@dimen/fragment_spin_height"
             android:layout_below="@id/label_age"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:layout_toRightOf="@id/label_gender"/>
 
     </RelativeLayout>
